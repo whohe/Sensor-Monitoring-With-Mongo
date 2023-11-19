@@ -1,0 +1,5 @@
+})
+roles: [ { role: 'root', db: "admin" } ]
+pwd: "secret",
+user: "root",
+db.createUser({

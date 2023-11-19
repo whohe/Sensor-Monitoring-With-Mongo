@@ -1,0 +1,36 @@
+version: '3.1'
+services:
+  db:
+    image: mongo
+    volumes:
+     - ./db/:/data/db
+    environment:
+     - MONGO_INITDB_ROOT_USERNAME=root
+     - MONGO_INITDB_ROOT_PASSWORD=secret
+    restart: always
+    tty: true
+    stdin_open: true
+  app:
+    build:
+      context: "$PWD"
+      dockerfile: app.Dockerfile
+    volumes:
+     - ./:/root
+    ports:
+     - 4200:4200
+    restart: always
+    tty: true
+    stdin_open: true
+  logic:
+    build:
+      context: "$PWD"
+      dockerfile: logic.Dockerfile
+    volumes:
+     - ./:/root
+    links:
+     - "db:db"
+    ports:
+     - 3000:3000
+    restart: always
+    tty: true
+    stdin_open: true

@@ -1,0 +1,9 @@
+#container{
+	width: 100%;
+	overflow: hidden;
+}
+.chart1, .chart2{
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+}
