@@ -6,5 +6,6 @@ EXPOSE 3000
 WORKDIR /root
 #RUN npm install 
 
-CMD ash
+WORKDIR /root/logic 
 
+CMD node index.js
