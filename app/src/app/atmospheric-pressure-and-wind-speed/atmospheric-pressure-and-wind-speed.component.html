@@ -1,10 +1,23 @@
+<mat-form-field style="width: 100%;">
+  <mat-label>Datos Estadisticos</mat-label>
+  <mat-select (selectionChange)="onSelectChange($event)">
+    <mat-option value="pressure_average">Promedio de Presion Atmosferica</mat-option>
+    <mat-option value="pressure_standard_deviation">Desviacion Estandar de los datos de Presion Atmosferica</mat-option>
+    <mat-option value="wind_speed_average">Promedio de Velocidad del Viento</mat-option>
+    <mat-option value="wind_speed_standard_deviation">Desviacion Estandar de los datos de Velocidad del Viento</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-card *ngIf="isCardVisible">
+	<mat-card-header>
+		<mat-card-title>{{cardTitle}}</mat-card-title>
+		<mat-card-subtitle>{{cardBody}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
 <div id='container'>
 	<div class='chart1'>
-			<h1>Promedio presion atmosferica {{pressure_average}}</h1>
 		  <canvas id="atmospheric-pressure">{{atmosphericPressure}}</canvas>
 	</div>
 	<div class='chart2'>
-			<h1>Promedio de velocidad de viento: {{wind_speed_average}}</h1>
 		  <canvas id="wind-speed">{{windSpeed}}</canvas>
 	</div>
 </div>

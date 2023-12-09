@@ -1,7 +1,18 @@
-<div style="text-align:center">
-	<h1>Promedio de temperatura {{temperature_average}}</h1>
-	<h1>Promedio de humedad {{humidity_average}}</h1>
-</div>
+<mat-form-field style="width: 100%;">
+  <mat-label>Datos Estadisticos</mat-label>
+  <mat-select (selectionChange)="onSelectChange($event)">
+    <mat-option value="humidity_average">Promedio de Humedad</mat-option>
+    <mat-option value="humidity_standard_deviation">Desviacion Estandar de los datos de Humedad</mat-option>
+    <mat-option value="temperature_average">Promedio de Temperatura</mat-option>
+    <mat-option value="temperature_standard_deviation">Desviacion Estandar de los datos de Temperatura</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-card *ngIf="isCardVisible">
+	<mat-card-header>
+		<mat-card-title>{{cardTitle}}</mat-card-title>
+		<mat-card-subtitle>{{cardBody}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
 <div id='chart-container-1'>
 	  <canvas id="temperature-and-humidity">{{chart}}</canvas>
 </div>

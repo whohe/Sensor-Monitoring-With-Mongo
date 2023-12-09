@@ -1,10 +1,23 @@
+<mat-form-field style="width: 100%;">
+  <mat-label>Datos Estadisticos</mat-label>
+  <mat-select (selectionChange)="onSelectChange($event)">
+    <mat-option value="noise_level_average">Promedio de Nivel de Ruido</mat-option>
+    <mat-option value="noise_level_standard_deviation">Desviacion Estandar de los datos de Nivel de Ruido</mat-option>
+    <mat-option value="air_quality_average">Promedio de Calidad de Aire</mat-option>
+    <mat-option value="air_quality_standard_deviation">Desviacion Estandar de los datos de Calidad de Aire</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-card *ngIf="isCardVisible">
+	<mat-card-header>
+		<mat-card-title>{{cardTitle}}</mat-card-title>
+		<mat-card-subtitle>{{cardBody}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
 <div id='container'>
 	<div class='chart1'>
-			<h1>Promedio nivel de ruido {{noise_level_average}}</h1>
 		<canvas id="noise-level">{{noiseLevel}}</canvas>
 	</div>
 	<div class='chart2'>
-			<h1>Promedio de calidad del aire: {{air_quality_average}}</h1>
 		<canvas id="air-quality">{{airQuality}}</canvas>
 	</div>
 </div>
