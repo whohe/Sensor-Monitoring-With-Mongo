@@ -10,7 +10,7 @@ app.use(cors({
 }));
 
 // Conexión a MongoDB
-mongoose.connect('mongodb://root:secret@db:27017/monitoring-sensor-data?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false')
+mongoose.connect('mongodb://root:secret@db:27017/monitoring-sensor-data?authSource=admin&readPreference=primary&appname=LogicExpress&directConnection=true&ssl=false')
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error de conexión a MongoDB:'));

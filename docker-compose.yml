@@ -13,9 +13,9 @@ services:
   app:
     build:
       context: "$PWD"
-      dockerfile: app.Dockerfile
+      dockerfile: "$PWD/app/Dockerfile"
     volumes:
-     - ./:/root
+     - ./app/:/root
     ports:
      - 4200:4200
     restart: always
@@ -24,13 +24,24 @@ services:
   logic:
     build:
       context: "$PWD"
-      dockerfile: logic.Dockerfile
+      dockerfile: "$PWD/logic/Dockerfile"
     volumes:
-     - ./:/root
+     - ./logic/:/root
     links:
      - "db:db"
     ports:
      - 3000:3000
+    restart: always
+    tty: true
+    stdin_open: true
+  machine-learning:
+    build:
+      context: "$PWD"
+      dockerfile: "$PWD/machine-learning-model/Dockerfile"
+    volumes:
+     - ./machine-learning-model/:/root
+    links:
+     - "db:db"
     restart: always
     tty: true
     stdin_open: true
